@@ -9,7 +9,7 @@ import { Popconfirm, Select, Row, Col } from 'antd'
 import { offSaleGoods, queryGoodsPage, querySaleStatus } from '@/api/goods'
 import { queryPlatformList } from '@/api/platform'
 
-const GoodsList = () => {
+const Statistic = () => {
 
     const [tableList, setTableList] = useState({
         list: [],
@@ -373,4 +373,4 @@ const GoodsList = () => {
     )
 }
 
-export default GoodsList
+export default Statistic

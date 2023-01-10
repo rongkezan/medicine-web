@@ -1,13 +1,13 @@
 import './index.scss'
 import { Layout, Menu } from 'antd'
-import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Content, Footer } from 'antd/es/layout/layout'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 
 const { Header } = Layout
 
 const MyLayout = () => {
+
   const { pathname } = useLocation()
 
   const items = [
@@ -36,14 +36,15 @@ const MyLayout = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['/']}
+          defaultSelectedKeys={pathname}
+          selectedKeys={pathname}
           items={items}
         />
       </Header>
-      <Content className="site-layout" style={{ padding: '0 50px' }}>
+      <Content className="site-layout" style={{ height: '100%', width: '100%' }}>
         <Outlet />
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Keith Rong</Footer>
     </Layout>
   )
 }

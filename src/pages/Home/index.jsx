@@ -1,20 +1,42 @@
+import { Space, Card, Divider, Button } from 'antd'
 import './index.scss'
-import { Col, Row, Statistic, Breadcrumb, Card } from 'antd';
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { queryOrderHistories, queryStatistic, queryUserHistories } from '@/api/home';
-import { Column } from '@ant-design/plots';
-import { Menu } from 'antd';
 
 const Home = () => {
+
+    const jumpToIntroduction = () => {
+        document.querySelector('#introduction').scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        })
+    }
+
+    const jumpToReleaseInfo = () => {
+        document.querySelector('#releaseInfo').scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        })
+    }
+
     return (
         <div className='Home'>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
+            <section id='banner'>
+                <h2 className='title'>PlantscRNAdb</h2>
+                <p className='content'>A Database for Plant Single-cell RNA Analysis</p>
+                <Space size='large'>
+                    <Button ghost size='large' onClick={jumpToIntroduction}>Learn More</Button>
+                    <Button ghost size='large' onClick={jumpToReleaseInfo}>Release Info</Button>
+                </Space>
+            </section>
+            <Divider />
+            <Card title='Introduction of PlantscRNAdb' className='card' id='introduction'>
+                PlantscRNAdb is a database for plant single-cell RNA analysis, which includes eight species (Arabidopsis thaliana, Oryza sativa, Solanum lycopersicum, Zea mays, Fragaria vesca, Populus, Nicotiana attenuata and Lemna minuta).
+            </Card>
+            <Divider />
+            <Card title='Release Info' className='card' id='releaseInfo'>
+                Release Info
+            </Card>
         </div>
     )
 }
