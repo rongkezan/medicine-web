@@ -1,17 +1,12 @@
 import { message } from 'antd'
 import axios from 'axios'
 import { getToken } from './token'
-
-let baseUrl = "http://127.0.0.1:8001/"
-
-if (process.env.REACT_APP_ENV === "pro") {
-  baseUrl = "http://127.0.0.1:8001/"
-}
+import '@/globalConfig'
 
 // 初始化axios
 const http = axios.create({
-  baseURL: baseUrl,
-  timeout: 50000
+  baseURL: global.config.baseUrl,
+  timeout: 60000
 })
 
 // 请求拦截器

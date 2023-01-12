@@ -1,10 +1,10 @@
 import './index.scss'
+import '@/globalConfig'
 import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { DeleteOutlined, DownloadOutlined, EditOutlined, InboxOutlined, PlusOutlined } from '@ant-design/icons'
-import { Input, Tag, Tooltip, Card, FloatButton, Table, Button, Drawer, Divider, Space, Popconfirm, Upload } from 'antd'
+import { Input, Tag, Tooltip, Card, FloatButton, Table, Button, Drawer, Divider, Space, Popconfirm, Upload, message } from 'antd'
 import { deleteHeaders, queryHeaders, saveHeaders } from '@/api/config'
-import { message } from 'antd'
 
 const { Dragger } = Upload
 
@@ -94,21 +94,20 @@ const Config = () => {
     const props = {
         name: 'file',
         multiple: true,
-        action: "http://127.0.0.1:8001/file/upload",
+        action: `${global.config.baseUrl}/file/upload`,
         data: { id: data.id },
         onChange(info) {
             const { status } = info.file
-            if (status !== 'uploading') {
-                console.log(info.file, info.fileList)
-            }
             if (status === 'done') {
-                message.success(`${info.file.name} file uploaded successfully.`)
+                const response = info.file.response
+                if(response.success) {
+                    message.success(response.msg)
+                } else {
+                    message.error(response.msg)
+                }
             } else if (status === 'error') {
                 message.error(`${info.file.name} file upload failed.`)
             }
-        },
-        onDrop(e) {
-            console.log('Dropped files', e.dataTransfer.files)
         }
     }
 
