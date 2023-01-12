@@ -13,13 +13,7 @@ const MyLayout = () => {
   const items = [
     { key: '/', label: <Link to='/'>Home</Link> },
     { key: '/statistic', label: <Link to='/statistic'>Statistic</Link> },
-    { key: '/search', label: <Link to='/search'>Search</Link> },
-    { key: '/blast', label: <Link to='/blast'>Blast</Link> },
-    { key: '/jbrowse', label: <Link to='/jbrowse'>JBrowse</Link> },
-    { key: '/reference', label: <Link to='/reference'>Reference</Link> },
-    { key: '/download', label: <Link to='/download'>Download</Link> },
-    { key: '/aboutus', label: <Link to='/aboutus'>About us</Link> },
-    { key: '/config', label: <Link to='/config'>Config</Link> },
+    { key: '/config', label: <Link to='/config'>Config</Link> }
   ]
   return (
     <Layout>
