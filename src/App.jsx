@@ -5,6 +5,7 @@ import '@/App.css'
 import Home from '@/pages/Home'
 import Layout from '@/pages/Layout'
 import Statistic from '@/pages/Statistic'
+import Config from '@/pages/Config'
 
 const App = () => (
   <HashRouter>
@@ -12,6 +13,7 @@ const App = () => (
       <Route path='/' element={<Layout />}>
         <Route path='/' index element={<Home />} />
         <Route path='/statistic' element={<Statistic />} />
+        <Route path='/config' element={<Config />} />
       </Route>
     </Routes>
   </HashRouter>

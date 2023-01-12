@@ -19,6 +19,7 @@ const MyLayout = () => {
     { key: '/reference', label: <Link to='/reference'>Reference</Link> },
     { key: '/download', label: <Link to='/download'>Download</Link> },
     { key: '/aboutus', label: <Link to='/aboutus'>About us</Link> },
+    { key: '/config', label: <Link to='/config'>Config</Link> },
   ]
   return (
     <Layout>
